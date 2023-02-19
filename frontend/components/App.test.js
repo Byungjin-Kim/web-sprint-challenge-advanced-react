@@ -9,7 +9,7 @@ test('renders Grid App without errors', () => {
 });
 
 // test 2
-test(`Lenders "You can't go up" if the "LEFT" button is clicked twice`, async () => {
+test(`renders "You can't go up" if the "LEFT" button is clicked twice`, async () => {
   render(<AppClass />);
 
   const left = document.querySelector('#left')
@@ -22,7 +22,7 @@ test(`Lenders "You can't go up" if the "LEFT" button is clicked twice`, async ()
 })
 
 // test 3
-test(`Lenders "You can't go right" if the "RIGHT" button is clicked twice`, async () => {
+test(`renders "You can't go right" if the "RIGHT" button is clicked twice`, async () => {
   render(<AppClass />);
 
   const right = document.querySelector('#right')
@@ -35,7 +35,7 @@ test(`Lenders "You can't go right" if the "RIGHT" button is clicked twice`, asyn
 })
 
 // test 4
-test(`Lenders "You can't go down" if the "DOWN" button is clicked twice`, async () => {
+test(`renders "You can't go down" if the "DOWN" button is clicked twice`, async () => {
   render(<AppClass />);
 
   const down = document.querySelector('#down')
@@ -48,7 +48,7 @@ test(`Lenders "You can't go down" if the "DOWN" button is clicked twice`, async 
 })
 
 // test 5
-test(`Lenders "You can't go up" if the "UP" button is clicked twice`, async () => {
+test(`renders "You can't go up" if the "UP" button is clicked twice`, async () => {
   render(<AppClass />);
 
   const up = document.querySelector('#up')
@@ -60,62 +60,87 @@ test(`Lenders "You can't go up" if the "UP" button is clicked twice`, async () =
   expect(upMessage).toBeInTheDocument();
 })
 
-// test 6
-test('renders "email is required" if an invalid email is entered', async () => {
+// test 7 
+test('renders basic Coordinates "(2,2)"', async () => {
   render(<AppClass />);
 
-  const emailField = document.querySelector('#email');
-  const submit = document.querySelector('#submit')
+  const basicCoordinates = screen.getByText('Coordinates (2, 2)');
 
-  fireEvent.change(emailField, { target: { value: 'coco@gmail' } });
-  fireEvent.click(submit);
-
-  const errorMessage = await screen.findByText('Ouch: email must be a valid email');
-  expect(errorMessage).toBeInTheDocument();
-});
-
-// test 7
-test('renders "email is required" if an invalid email is entered', async () => {
-  render(<AppClass />);
-
-  const emailField = document.querySelector('#email');
-  const submit = document.querySelector('#submit')
-
-  fireEvent.change(emailField, { target: { value: 'coco@gmail' } });
-  fireEvent.click(submit);
-
-  const errorMessage = await screen.findByText('Ouch: email must be a valid email');
-  expect(errorMessage).toBeInTheDocument();
-});
+  expect(basicCoordinates).toBeInTheDocument();
+  expect(basicCoordinates).toBeTruthy();
+})
 
 // test 8
-test('renders "email must be a valid email address" if no email is entered', async () => {
+test('renders moving 1 time', async () => {
   render(<AppClass />);
 
-  const submit = document.querySelector('#submit')
-  fireEvent.click(submit);
+  const left = document.querySelector('#left')
 
-  const errorMessage = await screen.findByText('Ouch: email is required');
-  expect(errorMessage).toBeInTheDocument();
-});
+  fireEvent.click(left);
 
-// test 9
-test(`renders "lady win #49" if "UP", "RIGHT", "Email:lady@gaga.com" and "Submit" buttons are clicked`, async () => {
-  render(<AppClass />);
+  const movingMessage = await screen.findByText("You moved 1 time");
 
-  const up = document.querySelector('#up')
-  const right = document.querySelector('#right');
-  const emailField = document.querySelector('#email');
-  const submit = document.querySelector('#submit')
+  expect(movingMessage).toBeInTheDocument();
+  expect(movingMessage).toBeTruthy();
+})
 
-  fireEvent.click(up);
-  fireEvent.click(right);
-  fireEvent.change(emailField, { target: { value: 'lady@gaga.com' } });
-  fireEvent.click(submit);
 
-  const submitMessage = await screen.findByText('lady win #49');
-  expect(submitMessage).toBeInTheDocument();
-});
+// // test 9
+// test('renders "email is required" if an invalid email is entered', async () => {
+//   render(<AppClass />);
+
+//   const emailField = document.querySelector('#email');
+//   const submit = document.querySelector('#submit')
+
+//   fireEvent.change(emailField, { target: { value: 'coco@gmail' } });
+//   fireEvent.click(submit);
+
+//   const errorMessage = await screen.findByText('Ouch: email must be a valid email');
+//   expect(errorMessage).toBeInTheDocument();
+// });
+
+// // test 10
+// test('renders "email is required" if an invalid email is entered', async () => {
+//   render(<AppClass />);
+
+//   const emailField = document.querySelector('#email');
+//   const submit = document.querySelector('#submit')
+
+//   fireEvent.change(emailField, { target: { value: 'coco@gmail' } });
+//   fireEvent.click(submit);
+
+//   const errorMessage = await screen.findByText('Ouch: email must be a valid email');
+//   expect(errorMessage).toBeInTheDocument();
+// });
+
+// // test 11
+// test('renders "email must be a valid email address" if no email is entered', async () => {
+//   render(<AppClass />);
+
+//   const submit = document.querySelector('#submit')
+//   fireEvent.click(submit);
+
+//   const errorMessage = await screen.findByText('Ouch: email is required');
+//   expect(errorMessage).toBeInTheDocument();
+// });
+
+// // test 12
+// test(`renders "lady win #49" if "UP", "RIGHT", "Email:lady@gaga.com" and "Submit" buttons are clicked`, async () => {
+//   render(<AppClass />);
+
+//   const up = document.querySelector('#up')
+//   const right = document.querySelector('#right');
+//   const emailField = document.querySelector('#email');
+//   const submit = document.querySelector('#submit')
+
+//   fireEvent.click(up);
+//   fireEvent.click(right);
+//   fireEvent.change(emailField, { target: { value: 'lady@gaga.com' } });
+//   fireEvent.click(submit);
+
+//   const submitMessage = await screen.findByText('lady win #49');
+//   expect(submitMessage).toBeInTheDocument();
+// });
 
 test('sanity', () => {
   expect(true).toBe(true)

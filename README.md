@@ -1,6 +1,6 @@
-## ✏️ Customization & Contribution (Byungjin Kim)
+## 🔧 How I Customized & Built This Project
 
-This project was originally built as part of a BloomTech Sprint Challenge on Advanced React, where the goal was to implement a grid-based interface in both functional and class-based React components and test its functionality using React Testing Library.
+This project was built to implement a grid-based interface using both functional and class-based React components, with testing handled through React Testing Library.
 
 For learning and portfolio purposes, I:
 
@@ -9,7 +9,7 @@ For learning and portfolio purposes, I:
 - 🎨 Customized UI elements such as the footer to reflect my authorship and year of revision.
 - 📖 Rewrote this documentation to reflect my learning process and technical decisions.
 
-While the original challenge and structural outline were provided by Bloom Institute of Technology (BloomTech), all implementation and documentation in this repository represent my own independent work. This project was built to deepen my understanding of advanced React patterns, grid logic, controlled components, and API integration.
+This project was built to deepen my understanding of advanced React patterns, grid logic, controlled components, and API integration.
 
 ---
 

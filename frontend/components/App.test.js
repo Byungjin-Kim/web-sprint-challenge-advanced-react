@@ -9,17 +9,30 @@ test('renders Grid App without errors', () => {
 });
 
 // test 2
-test(`renders "You can't go up" if the "LEFT" button is clicked twice`, async () => {
+test(`renders "You can't go left" if the "LEFT" button is clicked twice`, async () => {
   render(<AppClass />);
 
-  const left = document.querySelector('#left')
+  const left = document.querySelector('#left');
 
   fireEvent.click(left);
   fireEvent.click(left);
 
   const leftMessage = await screen.findByText("You can't go left");
   expect(leftMessage).toBeInTheDocument();
-})
+});
+
+// test 2-1.
+test(`renders "You can't go left" if the "LEFT button is clicked twince`, async () => {
+  render(<AppClass />);
+
+  const leftButton = screen.getByRole('button', {name: /left/i});
+
+  fireEvent.click(leftButton);
+  fireEvent.click(leftButton);
+
+  const leftMessage = await screen.findByText("You can't go left");
+  expect(leftMessage).toBeInTheDocument();
+});
 
 // test 3
 test(`renders "You can't go right" if the "RIGHT" button is clicked twice`, async () => {
@@ -32,7 +45,7 @@ test(`renders "You can't go right" if the "RIGHT" button is clicked twice`, asyn
 
   const rightMessage = await screen.findByText("You can't go right");
   expect(rightMessage).toBeInTheDocument();
-})
+});
 
 // test 4
 test(`renders "You can't go down" if the "DOWN" button is clicked twice`, async () => {
@@ -45,7 +58,7 @@ test(`renders "You can't go down" if the "DOWN" button is clicked twice`, async 
 
   const downMessage = await screen.findByText("You can't go down");
   expect(downMessage).toBeInTheDocument();
-})
+});
 
 // test 5
 test(`renders "You can't go up" if the "UP" button is clicked twice`, async () => {
@@ -58,17 +71,15 @@ test(`renders "You can't go up" if the "UP" button is clicked twice`, async () =
 
   const upMessage = await screen.findByText("You can't go up");
   expect(upMessage).toBeInTheDocument();
-})
+});
 
 // test 7 
 test('renders basic Coordinates "(2,2)"', async () => {
   render(<AppClass />);
 
   const basicCoordinates = screen.getByText('Coordinates (2, 2)');
-
   expect(basicCoordinates).toBeInTheDocument();
-  expect(basicCoordinates).toBeTruthy();
-})
+});
 
 // test 8
 test('renders moving 1 time', async () => {
@@ -79,10 +90,8 @@ test('renders moving 1 time', async () => {
   fireEvent.click(left);
 
   const movingMessage = await screen.findByText("You moved 1 time");
-
   expect(movingMessage).toBeInTheDocument();
-  expect(movingMessage).toBeTruthy();
-})
+});
 
 
 // test 9
@@ -130,5 +139,5 @@ test(`renders "lady win #49" if "UP", "RIGHT", "Email:lady@gaga.com" and "Submit
 
 test('sanity', () => {
   expect(true).toBe(true)
-})
+});
 

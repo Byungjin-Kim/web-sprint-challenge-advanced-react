@@ -1,17 +1,27 @@
-# Sprint Challenge: Advanced React
+## ✏️ Customization & Contribution (Byungjin Kim)
 
-## Intro
+This project was originally built as part of a BloomTech Sprint Challenge on Advanced React, where the goal was to implement a grid-based interface in both functional and class-based React components and test its functionality using React Testing Library.
 
-In this challenge, you will write the logic for [THIS WIDGET](https://advanced-react-grid.herokuapp.com/).
+For learning and portfolio purposes, I:
 
-Study its functionality and also inspect the Console, the Network tab and the Elements tab **in Chrome Dev Tools**:
+- 🔄 Rebuilt the logic and interface from scratch based on project specifications and the deployed demo.
+- 🧪 Refactored and expanded test cases for clarity, readability, and TDD practice.
+- 🎨 Customized UI elements such as the footer to reflect my authorship and year of revision.
+- 📖 Rewrote this documentation to reflect my learning process and technical decisions.
 
-- There are two versions of the widget with identical functionality: class-based and functional.
-- The input box at the bottom of the page expects a valid email address.
-- Email validation errors arrive from the server, as you can see in the Network tab, under "Preview".
-- The payload sent to the server on form submit can also be seen in the Network tab, under "Payload".
-- One valid email in particular, `foo@bar.baz`, **results in a "Forbidden" server error**❗
-- The origin of coordinates of the grid is on its top-left corner.
+While the original challenge and structural outline were provided by Bloom Institute of Technology (BloomTech), all implementation and documentation in this repository represent my own independent work. This project was built to deepen my understanding of advanced React patterns, grid logic, controlled components, and API integration.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (Functional & Class Components)
+- **React Testing Library** & **Jest** for unit testing
+- **JavaScript (ES6+)**
+- **HTML5/CSS3**
+- **Webpack** for bundling and development server
+- **Node.js & Express** for backend API simulation
+
 
 ## Requirements
 
